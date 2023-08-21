@@ -1,0 +1,27 @@
+minimum_cumulusci_version: '3.78.0'
+project:
+    name: OEE-EventBrite-Integration
+    package:
+        name: OEE-EventBrite-Integration
+        api_version: '58.0'
+    dependencies:
+        - github: 'https://github.com/OEE-Application-Development/OEE-PE-Unlocked'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/OEE-EventBrite-Integration/tests
+            options:
+                outputdir: robot/OEE-EventBrite-Integration/results
+
+    robot_testdoc:
+        options:
+            path: robot/OEE-EventBrite-Integration/tests
+            output: robot/OEE-EventBrite-Integration/doc/OEE-EventBrite-Integration_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
